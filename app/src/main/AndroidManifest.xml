@@ -4,11 +4,15 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:name=".MyApp"
         android:allowBackup="true"
-        android:icon="@mipmap/property"
+        android:icon="@drawable/ic_dream"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/property_round"
         android:supportsRtl="true"
@@ -44,11 +48,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.SignUpActivity" />
-        <activity android:name=".login.SigninActivity" android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".login.SigninActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".login.ForgotPasswordActivity" />
         <activity android:name=".login.OTP_verify" />
         <activity android:name=".login.New_Password" />
-        <activity android:name=".search.SearchActivity"></activity>
+        <activity android:name=".search.SearchActivity" />
+        <activity android:name=".addProperty.ImageActivity"/>
+        <activity android:name=".home.HomeActivity" />
+        <activity
+            android:name=".home.DetailsActivity"
+            android:parentActivityName=".home.HomeActivity" />
+        <activity
+            android:name=".settings.SettingsActivity"
+            android:parentActivityName=".home.HomeActivity"></activity>
+        <activity android:name=".addProperty.AddPropertyActivity" android:parentActivityName=".home.HomeActivity"></activity>
+
     </application>
 
 </manifest>

@@ -31,6 +31,7 @@ import com.m.property.MainActivity;
 import com.m.property.R;
 import com.m.property.beanResponse.Registration;
 import com.m.property.beanResponse.userSignin;
+import com.m.property.home.HomeActivity;
 import com.m.property.utility.AppUtilits;
 import com.m.property.utility.Constant;
 import com.m.property.utility.DataValidation;
@@ -150,7 +151,7 @@ public class SigninActivity extends AppCompatActivity {
         skip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+                Intent intent = new Intent(SigninActivity.this, HomeActivity.class);
                 startActivity(intent);
                 finish();
             }
@@ -219,14 +220,16 @@ public class SigninActivity extends AppCompatActivity {
                             avi.smoothToHide();
 
                             Log.e(TAG, "  user data " + response.body().getInformation());
-                            SharePreferenceUtils.getInstance().saveString(Constant.USER_DATA, response.body().getInformation().getUserId());
+                            SharePreferenceUtils.getInstance().saveString(Constant.USER_id, response.body().getInformation().getUserId());
                             SharePreferenceUtils.getInstance().saveString(Constant.USER_name, response.body().getInformation().getFullname());
                             SharePreferenceUtils.getInstance().saveString(Constant.USER_email, response.body().getInformation().getEmail());
                             SharePreferenceUtils.getInstance().saveString(Constant.USER_phone, response.body().getInformation().getPhone());
+                            SharePreferenceUtils.getInstance().saveString(Constant.USER_DATA, response.body().getInformation().getPhone());
+
 
 
                             // start home activity
-                            Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+                            Intent intent = new Intent(SigninActivity.this, HomeActivity.class);
                             //intent.putExtra("userid", "sdfsd");
                             startActivity(intent);
                             finish();

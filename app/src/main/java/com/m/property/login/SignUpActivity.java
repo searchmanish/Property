@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.m.property.MainActivity;
 import com.m.property.R;
 import com.m.property.beanResponse.NewUserRegistration;
+import com.m.property.home.HomeActivity;
 import com.m.property.utility.AppUtilits;
 import com.m.property.utility.Constant;
 import com.m.property.utility.DataValidation;
@@ -129,7 +130,7 @@ public class SignUpActivity extends AppCompatActivity {
                             SharePreferenceUtils.getInstance().saveString(Constant.USER_phone, response.body().getInformation().getPhone());
 
                             // start home activity
-                            Intent intent = new Intent(SignUpActivity.this, MainActivity.class);
+                            Intent intent = new Intent(SignUpActivity.this, HomeActivity.class);
                             //intent.putExtra("userid", "sdfsd");
                             startActivity(intent);
                             finish();

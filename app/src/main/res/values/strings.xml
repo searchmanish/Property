@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Property</string>
+    <string name="app_name">DreamHousing</string>
     <string name="facebook_app_id">1938925409501350</string>
     <string name="fb_login_protocol_scheme">fb1938925409501350</string>
 
@@ -131,6 +131,36 @@
     <string name="camera">camera</string>
     <string name="help">help</string>
     <string name="filter">filter</string>
+    <string name="PropertyForSell">PropertyForSell</string>
+
+    <string name="freshProperty"> Fresh properties For You</string>
+    <string name="hotDeal"> Hot Deals For You</string>
+    <string name="ownerProperty"> Owner Property</string>
+
+    //Drawer Layout
+    <string name="drawer_open"> Open</string>
+    <string name="drawer_close"> Close</string>
+
+
+    // bottom navigation
+    <string name="tab_1">Label 1</string>
+    <string name="tab_2">Label 2</string>
+    <string name="tab_3">Label 3</string>
+    <string name="tab_4">Label 4</string>
+    <string name="tab_5">Label 5</string>
+    <string name="menu_1">Menu 1</string>
+    <string name="menu_2">Menu 2</string>
+    <string name="menu_3">Menu 3</string>
+    <string name="menu_4">Menu 4</string>
+    <string name="menu_5">Menu 5</string>
+    <string name="description">bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb
+    bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb
+    bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb
+    bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb
+    bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb
+    bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb
+    bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb
+    bdmbdkfdmf ik ,fdvcbvcvl vckfbgl bv kcnvnnmmmc   clkvvlbb</string>
 
 
 </resources>

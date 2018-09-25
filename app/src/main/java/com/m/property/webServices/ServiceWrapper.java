@@ -4,9 +4,14 @@ package com.m.property.webServices;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.m.property.BuildConfig;
+import com.m.property.beanResponse.AddProperty;
 import com.m.property.beanResponse.ForgotPassword;
 import com.m.property.beanResponse.NewPassword;
 import com.m.property.beanResponse.NewUserRegistration;
+import com.m.property.beanResponse.PropertyDetails;
+import com.m.property.beanResponse.PropertyDetailsHot;
+import com.m.property.beanResponse.PropertyDetailsOwner;
+import com.m.property.beanResponse.PropertySell;
 import com.m.property.beanResponse.Registration;
 import com.m.property.beanResponse.userSignin;
 import com.m.property.utility.Constant;
@@ -62,6 +67,7 @@ public class ServiceWrapper {
     public Call<NewUserRegistration> newUserRegistrationCall(String fullname, String email, String phone, String username, String password) {
         return mServiceInterface.NewUserRegistrationCall(convertPlainString(fullname), convertPlainString(email), convertPlainString(phone), convertPlainString(username),
                 convertPlainString(password));
+
     }
 
 
@@ -86,6 +92,36 @@ public class ServiceWrapper {
     //  user new password
     public Call<NewPassword> UserNewPassword(String userid, String password) {
         return mServiceInterface.UserNewPassword(convertPlainString(userid), convertPlainString(password));
+    }
+
+    ///  new propertySell details
+    public Call<PropertySell> getNewProductRes(String securcode) {
+        return mServiceInterface.getNewPorduct(convertPlainString(securcode));
+    }
+  //propertyDetailsFresh
+  public Call<PropertyDetails> PorductDetailsFreshRes(String securcode) {
+      return mServiceInterface.getPorductDetailsFresh(convertPlainString(securcode));
+  }
+
+    //propertyDetailsOwner
+    public Call<PropertyDetailsOwner> PorductDetailsOwner(String securcode) {
+        return mServiceInterface.getPorductDetailsOwner(convertPlainString(securcode));
+    }
+
+    //propertyDetailsHot
+    public Call<PropertyDetailsHot> PorductDetailsHot(String securcode) {
+        return mServiceInterface.getPorductDetailsHot(convertPlainString(securcode));
+    }
+
+  // Add new Property
+
+    public  Call<AddProperty> addNewProperty(String mUser_id,String mMrp,String mAddress,String mPhone,String mProperty_type,
+    String mDetails){
+        return mServiceInterface.addNewProductDetails(convertPlainString(mUser_id),convertPlainString(mMrp),convertPlainString(mAddress),
+                convertPlainString(mPhone),convertPlainString(mProperty_type),convertPlainString(mDetails)
+
+
+        );
     }
 
     // convert aa param into plain text

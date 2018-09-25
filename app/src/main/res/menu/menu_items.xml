@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- <group
+         android:id="@+id/group_1"
+         android:checkableBehavior="single">
+    <item
+        android:id="@+id/home"
+        android:checkable="true"
+        android:title="Home"/>
+
+    <item
+        android:id="@+id/profile"
+        android:checkable="true"
+        android:title="Profile"/>
+     </group>
+
+    <group
+        android:id="@+id/group_2"
+        android:checkableBehavior="single">
+    <item
+        android:id="@+id/setting"
+        android:checkable="true"
+        android:title="Setting"/>
+    </group>-->
+
+
+
+    <!--The drawer items below have been categorized according to headers-->
+    <item
+        android:id="@+id/navigation_item_1"
+        android:title="Profile">
+        <menu>
+
+        <item
+            android:id="@+id/home"
+            android:checkable="true"
+            android:icon="@drawable/ic_home"
+            android:title="Home"/>
+
+        <item
+            android:id="@+id/profile"
+            android:checkable="true"
+            android:icon="@drawable/ic_pro"
+            android:title="Profile"/>
+        </menu>
+    </item>
+
+    <item
+        android:id="@+id/navigation_item_2"
+        android:title="Settings">
+        <menu>
+
+        <item
+            android:id="@+id/setting"
+            android:checkable="true"
+            android:icon="@drawable/ic_settingss"
+            android:title="Setting"/>
+        </menu>
+    </item>
+
+
+</menu>

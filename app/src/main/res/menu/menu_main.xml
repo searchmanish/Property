@@ -16,18 +16,25 @@
         android:orderInCategory="100"
         android:title="@string/settings"
         app:showAsAction="never"/>
+
     <item
         android:id="@+id/search"
-        android:icon="@drawable/search"
+        android:icon="@drawable/ic_smartphone"
         android:orderInCategory="100"
         android:title="@string/search"
+        app:showAsAction="always"/>
+    <item
+        android:id="@+id/logout"
+        android:icon="@drawable/ic_logout"
+        android:orderInCategory="100"
+        android:title="@string/logout"
         app:showAsAction="always"/>
     <item
         android:id="@+id/filter"
         android:icon="@drawable/filter"
         android:orderInCategory="100"
         android:title="@string/filter"
-        app:showAsAction="always"/>
+        app:showAsAction="never"/>
 
     <item
         android:id="@+id/mail"

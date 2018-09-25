@@ -1,9 +1,14 @@
 package com.m.property.webServices;
 
 
+import com.m.property.beanResponse.AddProperty;
 import com.m.property.beanResponse.ForgotPassword;
 import com.m.property.beanResponse.NewPassword;
 import com.m.property.beanResponse.NewUserRegistration;
+import com.m.property.beanResponse.PropertyDetails;
+import com.m.property.beanResponse.PropertyDetailsHot;
+import com.m.property.beanResponse.PropertyDetailsOwner;
+import com.m.property.beanResponse.PropertySell;
 import com.m.property.beanResponse.Registration;
 import com.m.property.beanResponse.userSignin;
 
@@ -67,5 +72,44 @@ public interface ServiceInterface {
             @Part("password") RequestBody password
     );
 
+    // get new propertySell
+    @Multipart
+    @POST("property/property_sell.php")
+    Call<PropertySell> getNewPorduct(
+            @Part("securecode") RequestBody securecode
+    );
+
+    // get new propertyDeatailsFresh
+    @Multipart
+    @POST("property/getproperty_details_freshproperty.php")
+    Call<PropertyDetails> getPorductDetailsFresh(
+            @Part("securecode") RequestBody securecode
+    );
+
+    // get new propertyDeatailsOwner
+    @Multipart
+    @POST("property/getproperty_details_owner.php")
+    Call<PropertyDetailsOwner> getPorductDetailsOwner(
+            @Part("securecode") RequestBody securecode
+    );
+
+    // get new propertyDeatailsHot
+    @Multipart
+    @POST("property/getproperty_details_hot.php")
+    Call<PropertyDetailsHot> getPorductDetailsHot(
+            @Part("securecode") RequestBody securecode
+    );
+
+   @Multipart
+    @POST("property/addProperty.php")
+    Call<AddProperty> addNewProductDetails(
+            @Part ("user_id") RequestBody user_id,
+            @Part ("mrp") RequestBody mrp,
+            @Part ("address") RequestBody address,
+            @Part ("phone") RequestBody phone,
+            @Part ("property_type") RequestBody propertyType,
+            @Part ("details") RequestBody details
+
+   );
 
 }
