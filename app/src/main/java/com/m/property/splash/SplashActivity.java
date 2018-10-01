@@ -59,7 +59,7 @@ public class SplashActivity extends AppCompatActivity {
                 /*String name = SharePreferenceUtils.getInstance().getString(Constant.USER_name);
                 String userData = SharePreferenceUtils.getInstance().getString(Constant.USER_name);
                 Toast.makeText(SplashActivity.this,""+name,Toast.LENGTH_LONG).show();*/
-                if (SharePreferenceUtils.getInstance().getString(Constant.USER_DATA).equalsIgnoreCase("")){
+                if (SharePreferenceUtils.getInstance().getString(Constant.USER_id).equalsIgnoreCase("")){
                     // not registted user  so show login screen
                     Intent intent = new Intent(SplashActivity.this, SigninActivity.class);
                     startActivity(intent);

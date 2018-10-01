@@ -24,6 +24,7 @@
         android:elevation="@dimen/txt_size_normal_8">
 
     <LinearLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -55,9 +56,39 @@
 
     </LinearLayout>
     </android.support.v7.widget.CardView>
+    <LinearLayout
+        android:id="@+id/linearCheckbox"
+        android:layout_below="@+id/cardView"
+        android:layout_marginTop="@dimen/padding_too_large_30"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:id="@+id/typeSell"
+            android:layout_margin="@dimen/padding_medium_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Property sell"
+            />
+        <CheckBox
+            android:id="@+id/typePurchase"
+            android:layout_margin="@dimen/padding_medium_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Property purchase"
+            />
+        <CheckBox
+            android:id="@+id/typeRent"
+            android:layout_margin="@dimen/padding_medium_10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="property rent"
+            />
+
+    </LinearLayout>
 
     <android.support.design.widget.FloatingActionButton
-        android:layout_below="@+id/cardView"
+        android:layout_below="@+id/linearCheckbox"
         android:id="@+id/floatingActionButton"
         android:layout_width="100dp"
         android:layout_height="100dp"

@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
 
 public class DataValidation  {
 
-// full name  - must letters -- no- number, no special symbol
+  // full name  - must letters -- no- number, no special symbol
     // address - can contains letters, number, few symbol
     // phone number - length must > 9 not char,
     // passsword  - length >6, no space
@@ -20,7 +20,7 @@ public class DataValidation  {
     public static Boolean isNotValidPassword(String password){
         Boolean valid = true;
         if (!TextUtils.isEmpty(password.trim())){
-             if (password.trim().length()>6){
+             if (password.trim().length()>0){
                  valid =false;
              }
         }

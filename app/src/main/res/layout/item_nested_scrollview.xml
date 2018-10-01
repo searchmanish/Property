@@ -15,15 +15,56 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="DreamHousing"
+            android:text="About Property"
             android:textColor="@color/colorPrimary"
-            android:textSize="20sp"
+            android:textSize="16sp"
             android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/prop_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/description"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"/>
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:text="Property Mrp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="@dimen/paddinng_large_15"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/prop_mrp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/description"
+            android:textColor="@android:color/black"
+            android:textSize="15sp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Location"
+            android:layout_marginTop="@dimen/paddinng_large_15"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:textStyle="bold"/>
+
+
+        <TextView
+            android:id="@+id/prop_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:text="@string/description"
             android:textColor="@android:color/black"
             android:textSize="15sp"/>

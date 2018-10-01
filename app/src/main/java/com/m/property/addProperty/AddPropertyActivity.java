@@ -1,6 +1,7 @@
 package com.m.property.addProperty;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -28,15 +29,17 @@ import retrofit2.Response;
 public class AddPropertyActivity extends AppCompatActivity {
     private String TAG ="AddPropertyActivity";
 
-    EditText mUserId,mMrp,mAddress,mPhone,mPropertyTtype,mDetails;
+    EditText mUserId,mUserName,mMrp,mAddress,mPhone,mPropertyTtype,mDetails;
     TextView mAddProperty;
 
+    String p_cat;
+
     private TextInputLayout inputLayoutUserId, inputLayoutPhone, inputLayoutMrp,
-            inputLayoutAddress,inputLayoutPropertyType,inputLayoutDetails;
+            inputLayoutAddress,inputLayoutPropertyType,inputLayoutDetails,inputLayoutUserName;
 
     RelativeLayout rootlayout;
 
-    String user_id,user_phone,address,mrp,details,propertyType;
+    String user_id,user_phone,user_name,address,mrp,details,propertyType;
     boolean isValid=false;
 
     @Override
@@ -52,6 +55,14 @@ public class AddPropertyActivity extends AppCompatActivity {
 
         setUpWidgets();
         getDataFromSharedPrefrence();
+
+        /*final Intent intent = getIntent();
+        final String property_call = intent.getExtras().getString("property_phone");*/
+
+        p_cat= getIntent().getExtras().getString("property_category");
+        //Setting Property Type data into editText
+        mPropertyTtype.setText(p_cat);
+        Toast.makeText(AddPropertyActivity.this, ""+p_cat, Toast.LENGTH_SHORT).show();
 
       mAddProperty.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -77,8 +88,10 @@ public class AddPropertyActivity extends AppCompatActivity {
     private void getDataFromSharedPrefrence() {
         user_id= SharePreferenceUtils.getInstance().getString("USER_id");
         user_phone = SharePreferenceUtils.getInstance().getString("USER_phone");
+        user_name = SharePreferenceUtils.getInstance().getString("USER_name");
         mUserId.setText(user_id);
         mPhone.setText(user_phone);
+        mUserName.setText(user_name);
         Toast.makeText(AddPropertyActivity.this, ""+user_id, Toast.LENGTH_SHORT).show();
     }
 
@@ -90,15 +103,18 @@ public class AddPropertyActivity extends AppCompatActivity {
         inputLayoutDetails = findViewById(R.id.inputLayoutDetails);
         inputLayoutMrp = findViewById(R.id.inputLayoutMrp);
         inputLayoutPropertyType = findViewById(R.id.inputLayoutPropertyType);
+        inputLayoutUserName =findViewById(R.id.inputLayoutUserName);
 
         rootlayout = findViewById(R.id.rootlayout);
         mUserId = findViewById(R.id.user_id);
+        mUserName = findViewById(R.id.user_name);
         mMrp = findViewById(R.id.mrp);
         mAddress = findViewById(R.id.address);
         mPhone = findViewById(R.id.phone);
         mPropertyTtype = findViewById(R.id.property_type);
         mDetails = findViewById(R.id.details);
         mAddProperty = findViewById(R.id.add_property);
+
     }
 
     public void addNewPropertyReq(){

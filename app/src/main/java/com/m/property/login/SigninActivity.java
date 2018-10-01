@@ -288,7 +288,7 @@ public class SigninActivity extends AppCompatActivity {
         socialRegister(fullname, email, id, type);
 
         Toast.makeText(SigninActivity.this, "" + first_name + "" + last_name, Toast.LENGTH_SHORT).show();
-        Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+        Intent intent = new Intent(SigninActivity.this, HomeActivity.class);
         startActivity(intent);
         finish();
     }
@@ -362,7 +362,7 @@ public class SigninActivity extends AppCompatActivity {
 
             //Saving user Data into database
             socialRegister(first_name, email, id, type);
-            Intent intent = new Intent(SigninActivity.this, MainActivity.class);
+            Intent intent = new Intent(SigninActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
 

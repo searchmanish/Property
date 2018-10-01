@@ -137,6 +137,10 @@
     <string name="hotDeal"> Hot Deals For You</string>
     <string name="ownerProperty"> Owner Property</string>
 
+    <string name="sell"> Property for Sell</string>
+    <string name="purchase"> Property for Purchase</string>
+    <string name="rent"> Property for Rent</string>
+
     //Drawer Layout
     <string name="drawer_open"> Open</string>
     <string name="drawer_close"> Close</string>

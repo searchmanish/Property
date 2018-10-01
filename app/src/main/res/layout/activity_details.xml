@@ -65,14 +65,8 @@
             android:paddingTop="10dp">
 
             <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
-            <include layout="@layout/item_nested_scrollview"/>
+
+
 
         </LinearLayout>
 

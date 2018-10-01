@@ -3,6 +3,7 @@ package com.m.property.webServices;
 
 import com.m.property.beanResponse.AddProperty;
 import com.m.property.beanResponse.ForgotPassword;
+import com.m.property.beanResponse.GetbannerModel;
 import com.m.property.beanResponse.NewPassword;
 import com.m.property.beanResponse.NewUserRegistration;
 import com.m.property.beanResponse.PropertyDetails;
@@ -111,5 +112,12 @@ public interface ServiceInterface {
             @Part ("details") RequestBody details
 
    );
+
+    // get banner image
+    @Multipart
+    @POST("property/getbanner.php")
+    Call<GetbannerModel> getbannerimagecall(
+            @Part("securecode") RequestBody securecode
+    );
 
 }

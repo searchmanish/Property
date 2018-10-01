@@ -6,6 +6,7 @@ import com.google.gson.GsonBuilder;
 import com.m.property.BuildConfig;
 import com.m.property.beanResponse.AddProperty;
 import com.m.property.beanResponse.ForgotPassword;
+import com.m.property.beanResponse.GetbannerModel;
 import com.m.property.beanResponse.NewPassword;
 import com.m.property.beanResponse.NewUserRegistration;
 import com.m.property.beanResponse.PropertyDetails;
@@ -99,16 +100,19 @@ public class ServiceWrapper {
         return mServiceInterface.getNewPorduct(convertPlainString(securcode));
     }
   //propertyDetailsFresh
+    //Updated as it works for product sell layout
   public Call<PropertyDetails> PorductDetailsFreshRes(String securcode) {
       return mServiceInterface.getPorductDetailsFresh(convertPlainString(securcode));
   }
 
     //propertyDetailsOwner
+    //Updated as it works for product purchase layout
     public Call<PropertyDetailsOwner> PorductDetailsOwner(String securcode) {
         return mServiceInterface.getPorductDetailsOwner(convertPlainString(securcode));
     }
 
     //propertyDetailsHot
+    ////Updated as it works for product rent layout
     public Call<PropertyDetailsHot> PorductDetailsHot(String securcode) {
         return mServiceInterface.getPorductDetailsHot(convertPlainString(securcode));
     }
@@ -122,6 +126,11 @@ public class ServiceWrapper {
 
 
         );
+    }
+
+    // get banner image
+    public Call<GetbannerModel> getbannerModelCall(String securcode){
+        return mServiceInterface.getbannerimagecall(convertPlainString(securcode) );
     }
 
     // convert aa param into plain text

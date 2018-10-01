@@ -12,9 +12,9 @@
     <application
         android:name=".MyApp"
         android:allowBackup="true"
-        android:icon="@drawable/ic_dream"
+        android:icon="@mipmap/dreamhouse1"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/property_round"
+        android:roundIcon="@mipmap/dreamhouse1_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity" />
@@ -55,16 +55,19 @@
         <activity android:name=".login.OTP_verify" />
         <activity android:name=".login.New_Password" />
         <activity android:name=".search.SearchActivity" />
-        <activity android:name=".addProperty.ImageActivity"/>
+        <activity android:name=".addProperty.ImageActivity" />
         <activity android:name=".home.HomeActivity" />
         <activity
             android:name=".home.DetailsActivity"
             android:parentActivityName=".home.HomeActivity" />
         <activity
             android:name=".settings.SettingsActivity"
-            android:parentActivityName=".home.HomeActivity"></activity>
-        <activity android:name=".addProperty.AddPropertyActivity" android:parentActivityName=".home.HomeActivity"></activity>
-
+            android:parentActivityName=".home.HomeActivity" />
+        <activity
+            android:name=".addProperty.AddPropertyActivity"
+            android:parentActivityName=".home.HomeActivity"
+            android:windowSoftInputMode="stateHidden"/>
+        <activity android:name=".profile.ProfileActivity"></activity>
     </application>
 
 </manifest>

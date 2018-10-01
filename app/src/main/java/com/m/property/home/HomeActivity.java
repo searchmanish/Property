@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -29,6 +30,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.m.property.MainActivity;
 import com.m.property.R;
+import com.m.property.beanResponse.GetbannerModel;
 import com.m.property.beanResponse.PropertyDetails;
 import com.m.property.beanResponse.PropertyDetailsHot;
 import com.m.property.beanResponse.PropertyDetailsOwner;
@@ -43,12 +45,20 @@ import com.m.property.webServices.ServiceWrapper;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import ss.com.bannerslider.banners.Banner;
+import ss.com.bannerslider.banners.RemoteBanner;
+import ss.com.bannerslider.views.BannerSlider;
 
 public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+
+    private BannerSlider bannerSlider;
+    private List<Banner> remoteBanners = new ArrayList<>();
+
 
     private RecyclerView recycler_Propertydetailsfresh;
     private ArrayList<PropertyDetailsModelFresh> mPDetailsModelFreshList = new ArrayList<PropertyDetailsModelFresh>();
@@ -76,7 +86,8 @@ private AHBottomNavigation bottomNavigation;
 
     //TextView
     TextView textView_fresh,textView_hotdeals,textView_owner;
-
+//bottom navigation
+BottomNavigationView navigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,6 +95,13 @@ private AHBottomNavigation bottomNavigation;
         setContentView(R.layout.activity_home);
 
         avi= findViewById(R.id.avi);
+
+        //Bottom navigation
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+        //Banner slider
+        bannerSlider = (BannerSlider) findViewById(R.id.banner_slider1);
 
         // casting text view
         textView_fresh =findViewById(R.id.textView_fresh);
@@ -181,10 +199,13 @@ private AHBottomNavigation bottomNavigation;
         propertyAdapterHot = new PropertyAdapterFresh(this, mPDetailsModelHotList, GetScreenWidth());
         recycler_Propertydetailshot.setAdapter(propertyAdapterHot);
 
+        //banner
+        getbannerimg();
 
         propertySellRes();
         propertyOwnerRes();
         propertyHotRes();
+
 
 
         //
@@ -418,8 +439,8 @@ private AHBottomNavigation bottomNavigation;
         closeDrawer();
         switch ( item.getItemId())
         {
-            case R.id.save:
-                break;
+           /* case R.id.save:
+                break;*/
             case R.id.profile:
                 break;
             case R.id.setting:
@@ -448,5 +469,92 @@ private AHBottomNavigation bottomNavigation;
         textView_hotdeals.setVisibility(View.VISIBLE);
         textView_owner.setVisibility(View.VISIBLE);
         textView_fresh.setVisibility(View.VISIBLE);
+    }
+
+
+    //Bottom navigation
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
+            = new BottomNavigationView.OnNavigationItemSelectedListener() {
+
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            //  Fragment fragment;
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    Toast.makeText(HomeActivity.this, "Clicked on Home", Toast.LENGTH_SHORT).show();
+
+                    //
+                    Intent homeIntent = new Intent(HomeActivity.this,HomeActivity.class);
+                    startActivity(homeIntent);
+                    return true;
+                case R.id.navigation_profile:
+                    Toast.makeText(HomeActivity.this, "Clicked on profile", Toast.LENGTH_SHORT).show();
+                    // toolbar.setTitle("Profile");
+                  /* // navigation.setItemBackgroundResource(R.color.green);
+                    Intent settingsIntent = new Intent(HomeActivity.this,SettingsActivity.class);
+                    startActivity(settingsIntent);*/
+                    return true;
+                case R.id.addProperty:
+                   // Toast.makeText(HomeActivity.this, "Clicked on Share", Toast.LENGTH_SHORT).show();
+                    //toolbar.setTitle("Share");
+                    Intent settingsIntent = new Intent(HomeActivity.this,SettingsActivity.class);
+                    startActivity(settingsIntent);
+                    return true;
+
+            }
+            return false;
+        }
+    };
+
+    public void getbannerimg() {
+        if (!NetworkUtility.isNetworkConnected(HomeActivity.this)) {
+            AppUtilits.displayMessage(HomeActivity.this, getString(R.string.network_not_connected));
+
+        } else {
+            ServiceWrapper service = new ServiceWrapper(null);
+            Call<GetbannerModel> call = service.getbannerModelCall("1234");
+            call.enqueue(new Callback<GetbannerModel>() {
+                @Override
+                public void onResponse(Call<GetbannerModel> call, Response<GetbannerModel> response) {
+                    Log.e(TAG, " banner response is " + response.body().getInformation().toString());
+                    if (response.body() != null && response.isSuccessful()) {
+                        if (response.body().getStatus() == 1) {
+                            if (response.body().getInformation().size() > 0) {
+
+                                for (int i = 0; i < response.body().getInformation().size(); i++) {
+                                    remoteBanners.add(new RemoteBanner(response.body().getInformation().get(i).getImgurl()));
+
+                                }
+
+
+                            } else {
+
+                                remoteBanners.add(new RemoteBanner("http://beliefitsolution.com/buyonline/downloads/preview.jpg"
+                                ));
+                                remoteBanners.add(new RemoteBanner("http://beliefitsolution.com/buyonline/downloads/preview.jpg"
+                                ));
+                            }
+
+                            bannerSlider.setBanners(remoteBanners);
+                        } else {
+                            remoteBanners.add(new RemoteBanner("http://beliefitsolution.com/buyonline/downloads/preview.jpg"
+                            ));
+                            remoteBanners.add(new RemoteBanner("http://beliefitsolution.com/buyonline/downloads/preview.jpg"
+                            ));
+                            bannerSlider.setBanners(remoteBanners);
+                        }
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<GetbannerModel> call, Throwable t) {
+                    Log.e(TAG, "fail banner ads " + t.toString());
+
+                }
+            });
+
+
+        }
+
     }
 }
